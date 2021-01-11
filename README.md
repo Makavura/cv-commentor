@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+## Recruit Commentor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Proposed Features:
+The user of this react application should be able to view the CV response(s) of for a job
+candidates are applying for at their company. The application should have the following
+workflow,
+- Choose candidate from a list.
+- Depending on the selection in the first step, if the selected candidate has an
+application, open the CV file of the candidate. If the selected candidate does not
+have an CV attached, display appropriate message.
+- Provide an option for recruiter to enter comments about the candidates CV .
+- Provide a "Save" button that saves the comments to the api.json file.
+- Use dummy CVs no need to implement upload mechanisim
+### Requirements
+- Only step 1 should be visible when no candidate is picked. Step 1,2,3 and 4
+should be visible when a candidate is picked.
+- User should be able to change candidate selection at any time.
+- You can use whatever libraries, task runners and build processes you like. React
+and plain JavaScript are the only requirements (ES6 encouraged, but no
+TypeScript, CoffeeScript, etc). Redux is strongly encouraged if you see a need
+for it.
 
-## Available Scripts
+### API Usage
+API can be launched using npm start. 
 
-In the project directory, you can run:
+**Endpoint Result**
+- /candidates Lists all available candidates
+- /questions Lists all available questions
+- /applications Lists all available applications
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project Setup
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Clone the repository
+- git clone git@github.com:Makavura/recruit-commentor.git
 
-### `npm test`
+Install Json-server which is used to mock a backend
+- npm i -g json-server
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Navigate into project directory
+- cd recruit-commentor
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Run project
+- npm run start
