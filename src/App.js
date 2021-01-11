@@ -17,12 +17,12 @@ function App() {
 
       <div>
         <div className={styles.rc_instructions}>
-          <p>
+          <p id="rc_instructions_p">
             Please click on a candidate to view their CV and respond with a commment
         </p>
         <hr></hr>
         </div>
-        <div class="rc_candidate_list">
+        <div className={styles.rc_candidate_list}>
           <Recruits></Recruits>
         </div>
         <div id="rc_candidate_cv_view">
