@@ -4,6 +4,7 @@ import jane from '../sample-pdfs/jane.pdf';
 import makavura from '../sample-pdfs/makavura.pdf'
 import listCandidates from '../services/list-recruits';
 import fetchCandidateInfo from '../services/fetch-candidate-info';
+import listResponsesToCV from './list-responses-to-cv';
 
 export default class ListCandidates extends React.Component {
     state = {
@@ -36,6 +37,7 @@ export default class ListCandidates extends React.Component {
         </div>
 
         ReactDOM.render(element, document.getElementById("rc_candidate_cv_view"));
+        listResponsesToCV(id);
     }
 
     render() {
