@@ -32,7 +32,7 @@ export default class Recruits extends React.Component {
         return (
             <ul>
                 {
-                    this.state.recruits.map(recruit => <li  id="rc_candidates_list" key={recruit.id} onClick={() => { this.viewCandidatesCV(recruit.id) }}>{recruit.name}</li>)
+                    this.state.recruits.map(recruit => <li id="rc_candidates_list" key={recruit.id} onClick={() => { this.viewCandidatesCV(recruit.id) }}>{recruit.name}</li>)
                 }
             </ul>
 
@@ -50,7 +50,7 @@ export default class Recruits extends React.Component {
         } else {
             return (
                 <div className="rc_error_no_CV">
-                    Error No CV To be Displayed
+                    Error: No CV To be Displayed!
                 </div>
             )
         }
@@ -60,7 +60,7 @@ export default class Recruits extends React.Component {
     handleSubmit = (event) => {
         document.getElementById("rc_input").value = "";
         const commentInput = this.state.value
-        if(!commentInput){
+        if (!commentInput) {
             console.warn("Please input something")
         } else {
             axios.post(`http://localhost:3000/responses`, {
@@ -101,7 +101,7 @@ export default class Recruits extends React.Component {
                     noPDFContent = true;
                     pdfContent = null;
                 }
-                const element = <div className={styles.rc_recruit_cv_info_view}>
+                let element = <div className={styles.rc_recruit_cv_info_view}>
 
                     <div className={styles.rc_recruit_cv_view}>
                         <div className={styles.rc_pdf_content}>
@@ -116,7 +116,7 @@ export default class Recruits extends React.Component {
                             </div>
                             <div className={styles.rc_btn_wrapper}>
                                 <button className={styles.rc_btn} type="submit" onClick={this.handleSubmit}>
-                                    Comment 
+                                    Comment
                                 </button>
                             </div>
                         </div>
@@ -126,7 +126,18 @@ export default class Recruits extends React.Component {
                     </style>
 
                 </div>
-                this.setState({ activeID: id })
+
+                if (noPDFContent) {
+                    element = <div className={styles.rc_recruit_cv_info_view}>
+
+                        <div className={styles.rc_recruit_cv_view}>
+                            <div className={styles.rc_pdf_content}>
+                                <this.RenderPDFView hasPdfContent={noPDFContent} pdfContent={pdfContent}></this.RenderPDFView>
+                            </div>
+                        </div>
+                        </div>
+                }
+                this.setState({activeID: id })
                 ReactDOM.render(element, document.getElementById("rc_candidate_cv_view"));
 
             }
