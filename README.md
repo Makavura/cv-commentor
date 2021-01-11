@@ -20,13 +20,17 @@ and plain JavaScript are the only requirements (ES6 encouraged, but no
 TypeScript, CoffeeScript, etc). Redux is strongly encouraged if you see a need
 for it.
 
-### API Usage
-API can be launched using npm start. 
+#### Choice of technology
+- Proper documentation of tool and ease of use e.g react-view-pdf
+- Axios; simplicity
 
-**Endpoint Result**
-- /candidates Lists all available candidates
-- /questions Lists all available questions
-- /applications Lists all available applications
+#### Improvements that can be made
+- A more modular approach to breakdown app into various components for showcasing scalability in larger projects
+- Comprehensive tests, ideally integration tests
+
+#### If allocated more time
+- Combine the modular approach suggested above with integration tests
+
 
 
 ## Project Setup
