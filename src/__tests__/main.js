@@ -20,9 +20,18 @@ it('Displays Recruit Commentor', () => {
     ReactDOM.render(<App />, container);
   });
   const banner = container.querySelector('#rc_banner_p');
-
   expect(banner.textContent).toBe('Recruit Commentor');
-
-
 });
+
+
+it('Displays proper Instructions', () => {
+
+  act(() => {
+    ReactDOM.render(<App />, container);
+  });
+  const banner = container.querySelector('#rc_instructions_p');
+  expect(banner.textContent).toBe('Please click on a candidate to view their CV and respond with a commment');
+});
+
+
 
