@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class ListRecruits extends React.Component {
+export default class ListCandidates extends React.Component {
     state = {
         recruits
     }
