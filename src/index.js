@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-import CVCommentor from './cv-commentor';
 
 ReactDOM.render(
   <React.StrictMode>
-    <CVCommentor></CVCommentor>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
