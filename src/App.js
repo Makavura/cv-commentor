@@ -11,7 +11,7 @@ function App() {
 
         </div>
         <div className={styles.rc_banner_txt}>
-          <p> Recruit Commentor</p>
+          <p id="rc_banner_p">Recruit Commentor</p>
         </div>
       </header>
 

@@ -32,7 +32,7 @@ export default class Recruits extends React.Component {
         return (
             <ul>
                 {
-                    this.state.recruits.map(recruit => <li key={recruit.id} onClick={() => { this.viewCandidatesCV(recruit.id) }}>{recruit.name}</li>)
+                    this.state.recruits.map(recruit => <li  id="rc_candidates_list" key={recruit.id} onClick={() => { this.viewCandidatesCV(recruit.id) }}>{recruit.name}</li>)
                 }
             </ul>
 
