@@ -44,3 +44,16 @@
 .rc_recruit_img_wrapper{
 
 }
+
+
+.rc_recruit_cv_view{
+    display: flex;
+    flex-direction: row;
+}
+.rc_pdf_content{
+    height: 60vw;
+    order: 1;
+}
+.rc_comment_form_wrapper{
+    order: 2;
+}
