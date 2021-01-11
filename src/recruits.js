@@ -59,15 +59,21 @@ export default class Recruits extends React.Component {
 
     handleSubmit = (event) => {
         document.getElementById("rc_input").value = "";
-        axios.post(`http://localhost:3000/responses`, {
-            candidateID: this.state.activeID,
-            recruiterComment: this.state.value
-        })
-            .then(res => {
-                console.log("SET VALUE TO UNDEFINED")
-                this.setState({ value: undefined })
-                viewResponsesToCV(this.state.activeID);
+        const commentInput = this.state.value
+        if(!commentInput){
+            console.warn("Please input something")
+        } else {
+            axios.post(`http://localhost:3000/responses`, {
+                candidateID: this.state.activeID,
+                recruiterComment: this.state.value
             })
+                .then(res => {
+                    console.log("SET VALUE TO UNDEFINED")
+                    this.setState({ value: undefined })
+                    viewResponsesToCV(this.state.activeID);
+                })
+        }
+
 
     }
 
@@ -79,6 +85,7 @@ export default class Recruits extends React.Component {
 
     viewCandidatesCV(id) {
         console.warn(id);
+        viewResponsesToCV(id);
         axios.get(`http://localhost:3000/candidates/?id=${id}`).then(
             response => {
                 const candidateInformation = response.data;
@@ -94,21 +101,23 @@ export default class Recruits extends React.Component {
                     noPDFContent = true;
                     pdfContent = null;
                 }
-                const element = <div class="rc_recruit_cv_info_view">
+                const element = <div className={styles.rc_recruit_cv_info_view}>
 
-                    <div class="rc_recruit_cv_view">
-                        <div class="rc_pdf_content">
+                    <div className={styles.rc_recruit_cv_view}>
+                        <div className={styles.rc_pdf_content}>
                             <this.RenderPDFView hasPdfContent={noPDFContent} pdfContent={pdfContent}></this.RenderPDFView>
                         </div>
 
-                        <div class="rc_comment_form_wrapper">
-                            <div class="rc_comment_input">
+                        <div className={styles.rc_comment_form_wrapper}>
+                            <div className={styles.rc_comment_input}>
                                 <form>
-                                    <input id="rc_input" onChange={this.handleChange} type="text" value={this.state.value}></input>
+                                    <textarea id="rc_input" className={styles.rc_input} onChange={this.handleChange} type="text" value={this.state.value}></textarea>
                                 </form>
                             </div>
-                            <div class="rc_btn_wrapper">
-                                <button class="rc_btn" type="submit" onClick={this.handleSubmit}>Add</button>
+                            <div className={styles.rc_btn_wrapper}>
+                                <button className={styles.rc_btn} type="submit" onClick={this.handleSubmit}>
+                                    Comment 
+                                </button>
                             </div>
                         </div>
                     </div>
