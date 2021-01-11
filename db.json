@@ -44,10 +44,6 @@
       "id": 1,
       "candidateID": 1,
       "recruiterComment": "sample response"
-    },
-    {
-      "candidateID": 1,
-      "id": 2
     }
   ],
   "questions": {
