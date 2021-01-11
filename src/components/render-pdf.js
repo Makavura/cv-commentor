@@ -1,26 +1,34 @@
 import PDFViewer from 'react-view-pdf';
 import React from 'react';
-
 export default class RenderCVPdf extends React.Component {
-   
-    pdfContent = this.props.pdfContent;
-    pdfComponentToBeRendered = undefined;
+   state = {
+
+   }
     componentDidMount() {
+        let pdfContent = this.props.pdfContent;
+        let pdfContentToBeRendered = undefined;
         
-        if (PdfContent) {
+        if (pdfContent) {
             pdfContentToBeRendered =  (
-                <PDFViewer url={pdfContentToBeRendered} />
+                <PDFViewer url={pdfContent} />
             )
+
         } else {
             pdfContentToBeRendered =  (
                 <div className="rc_error_no_CV">
                     Error No CV To be Displayed
                 </div>
             )
+            this.setState({pdfContentToRender: pdfContentToBeRendered})
         }
+
     }
 
     render() {
-        pdfContentToBeRendered
+        return  this.state.pdfContentToBeRendered
+    }
+
+    renderCVComments(){
+        
     }
 }

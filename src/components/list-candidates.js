@@ -1,47 +1,54 @@
 import React from 'react';
-import RenderCVPdf from './render-pdf';
-import jane from '../sample-pdfs/jane.pdf';
-import makavura from '../sample-pdfs/makavura.pdf'
-import listCandidates from '../services/list-recruits';
-import fetchCandidateInfo from '../services/fetch-candidate-info';
-import listResponsesToCV from './list-responses-to-cv';
-
+import ReactDOM from 'react-dom';
+import jane from '../jane.pdf';
+import makavura from '../makavura.pdf'
+import PDFViewer from 'react-view-pdf';
+import axios from 'axios';
+import styles from '../cv-commentor.module.css';
 export default class ListCandidates extends React.Component {
     state = {
-        recruits
+        recruits: []
     }
     /* 
     Fetch Candidate information from backend
     */
     componentDidMount() {
-        const response = await listCandidates();
-        this.setState({ recruits: response })
+        axios.get('http://localhost:3000/candidates').then(
+            response => {
+                const recruits = response.data;
+                this.setState({ recruits });
+            }
+        )
     }
 
     viewCandidatesCV(id) {
-        const response = await fetchCandidateInfo(id);
-        console.log(response);
 
-        const candidateId;
-        if (candidateId == 1) {
-            pdfContent = makavura;
-        } else if (candidateId == 2) {
-            pdfContent = jane;
-        } else {
-            noPDFContent = true;
-            pdfContent = null;
-        }
+        console.warn(id);
+        axios.get(`http://localhost:3000/candidates/?id=${id}`).then(
+            response => {
+                const candidateInformation = response.data;
+                console.warn(candidateInformation);
+                const url = candidateInformation[0].linkToCV;
 
-        const element = <div>
-            <RenderCVPdf pdfContent={pdfContent}></RenderCVPdf>
-        </div>
+                if (candidateInformation[0].id == 1) {
+                    
+                    const _ =  <PDFViewer url={makavura} />
+                    ReactDOM.render(_, document.getElementById("rc_candidate_cv_view"));
+                    
+                } else if (candidateInformation[0].id == 2) {
 
-        ReactDOM.render(element, document.getElementById("rc_candidate_cv_view"));
-        listResponsesToCV(id);
+                } else {
+
+                }
+              
+            }
+        )
+
     }
 
     render() {
-        <ul>
+
+        return <ul>
             {
                 this.state.recruits.map(recruit => <li key={recruit.id} onClick={() => { this.viewCandidatesCV(recruit.id) }}>{recruit.name}</li>)
             }

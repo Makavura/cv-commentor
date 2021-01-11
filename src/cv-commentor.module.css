@@ -1,0 +1,46 @@
+.rc_banner_logo {
+    width: 120px;
+    height: 120px;
+    order: 1;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+.rc_banner_txt {
+    order: 2;
+    text-align: center;
+    color: white;
+    font-size: 2em;
+}
+.rc_main {
+    font-family: "Source Code Pro", monospace;
+}
+.rc_header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+}
+.rc_banner_wrapper {
+    order: 1;
+    text-align: center;
+}
+
+.rc_responsive {
+    display: flex;
+    flex-direction: row;
+}
+
+.rc-candidates_list {
+    order: 1;
+}
+.rc_recruit_info_view {
+    order: 2;
+    border: solid 1px black;
+}
+.rc_recruit_img {
+    width: 80px;
+
+}
+.rc_recruit_img_wrapper{
+
+}

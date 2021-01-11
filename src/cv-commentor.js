@@ -1,5 +1,5 @@
-import smith from './smith.png';
 import  ListCandidates from './components/list-candidates';
+import styles from './cv-commentor.module.css';
 
 function CVCommentor() {
   return (
