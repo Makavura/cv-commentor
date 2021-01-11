@@ -1,7 +1,7 @@
 import smith from './smith.png';
 import  ListCandidates from './components/list-candidates';
 
-function App() {
+function CVCommentor() {
   return (
     <div className="rc_main">
 
@@ -40,4 +40,4 @@ function App() {
   );
 }
 
-export default App;
+export default CVCommentor;
